@@ -1,82 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanner - Web Developer</title>
-    <meta name="description" content="Tanner - Aspiring Full-Stack Web Developer building clean, accessible websites.">
+    <title>Tanner Weaver - Web Developer</title>
+    <meta name="description" content="Tanner Weaver - Aspiring Full-Stack Web Developer from Kerrtown, PA. Building clean, accessible websites.">
     
-    <!-- Basic favicon placeholder (we'll improve later) -->
+    <!-- Tailwind CSS CDN (perfect for rapid development) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind config for your colors and fonts -->
+    <script>
+        tailwind.config = {
+            content: ["./**/*.{html,js}"],
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system_ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>👨‍💻</text></svg>">
 </head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">Tanner</div>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+<body class="bg-zinc-950 text-zinc-200 font-sans">
+    <!-- Navigation -->
+    <header class="border-b border-zinc-800">
+        <nav class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="text-2xl font-semibold tracking-tight">Tanner</div>
+            
+            <ul class="flex gap-8 text-sm font-medium">
+                <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+                <li><a href="#projects" class="hover:text-white transition-colors">Projects</a></li>
+                <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
             </ul>
+            
+            <a href="https://github.com/weavertc-maker" 
+               target="_blank" 
+               rel="noopener"
+               class="px-5 py-2 bg-white text-zinc-950 rounded-full text-sm font-semibold hover:bg-zinc-200 transition-colors">
+                GitHub
+            </a>
         </nav>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="hero">
-            <h1>Hi, I'm Tanner</h1>
-            <p class="subtitle">I'm an aspiring Full-Stack Web Developer.</p>
-            <p>I'm learning to build fast, accessible, and professional web applications from the ground up.</p>
-            <a href="#contact" class="btn">Get in touch</a>
+        <section class="min-h-screen flex items-center justify-center px-6 py-20">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-6xl md:text-7xl font-bold tracking-tighter mb-6">
+                    Tanner Weaver
+                </h1>
+                <p class="text-2xl md:text-3xl text-zinc-400 mb-8">
+                    Aspiring Full-Stack Web Developer
+                </p>
+                <p class="max-w-lg mx-auto text-lg text-zinc-400 mb-10">
+                    I'm from Pennsylvania. Currently on a 30-day mission to go from beginner 
+                    to job-ready web developer by building real projects every single day.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#projects" 
+                       class="px-8 py-4 bg-white text-zinc-950 rounded-2xl font-semibold text-lg hover:bg-zinc-200 transition-all">
+                        View My Projects
+                    </a>
+                    <a href="#contact" 
+                       class="px-8 py-4 border border-zinc-700 hover:border-zinc-500 rounded-2xl font-semibold text-lg transition-all">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
         </section>
 
         <!-- About Section -->
-        <section id="about">
-            <h2>About Me</h2>
-            <p>My name is Tanner and I live in Pennsylvania.</p>
-            <p>For the last 5 years I have been working in an operational role, but I have felt unchallenged in what I do.</p>
-            <p>Recently, I decided that I would add a challenging skill to my background so here I am learning Web Development.</p>
-            <p>On a personal note, I enjoy sports, working out, and spending time with my kids.</p>
-            <p>Thank you for following me in this journey to learn something new.</p>
-            
-        <!-- Skills I'm Learning -->
-         <section id="Skills">
-            <h2>Skills I'm Learning</h2>
-            <p>I am currently in the beginning stages of learning html.</p>
-            <p>I will also be practicing CSS, JavaScript, and TypeScript.</p>
-            <p>My goal is to understand the front end and back end of web development in order to become a subject matter expert.</p>
-         </section>
+        <section id="about" class="py-24 bg-zinc-900">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-4xl font-bold tracking-tight mb-12 text-center">About Me</h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <p class="text-lg text-zinc-300 leading-relaxed mb-6">
+                            I'm a beginner web developer passionate about learning correct fundamentals 
+                            and shipping real applications. This entire portfolio is being built live as part of 
+                            my 30-day challenge.
+                        </p>
+                        <p class="text-lg text-zinc-300 leading-relaxed">
+                            Currently focusing on modern tools like Tailwind, React, and full-stack development. 
+                        </p>
+                    </div>
+                    
+                    <div class="bg-zinc-800 p-8 rounded-3xl">
+                        <h3 class="text-xl font-semibold mb-6">Currently Learning</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3">
+                                <span class="text-emerald-400">✓</span> 
+                                Semantic HTML & Accessibility
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-emerald-400">✓</span> 
+                                Tailwind CSS + Flexbox
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-emerald-400">✓</span> 
+                                JavaScript Fundamentals
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-          <!-- Why Web Development? -->
-         <section id="Why">
-            <h2>Why Web Development?</h2>
-            <p>About 10 years ago I worked for a company as a Project Manager managing various web development and back end projects for MLM companies.</p>
-            <p>That experience piqued my interest in how the web works, and how I could be a part of it.</p>
-            <p>My overall goal is to learn as much as I can and practice as often as I can until I reach my goal of becoming a web developer.</p>
-         </section>
+        <!-- Projects Section -->
+        <section id="projects" class="py-24">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-4xl font-bold tracking-tight mb-12 text-center">Projects</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden hover:border-zinc-600 transition-all group">
+                        <div class="h-52 bg-zinc-800 flex items-center justify-center text-6xl">📄</div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-semibold mb-3">Day 1 Portfolio</h3>
+                            <p class="text-zinc-400 mb-6">
+                                Clean semantic HTML portfolio built from scratch and deployed on Day 1.
+                            </p>
+                            <a href="https://weavertc-maker.github.io/day-1-portfolio/" 
+                               target="_blank"
+                               class="text-emerald-400 hover:text-emerald-300 font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                                View Live →
+                            </a>
+                        </div>
+                    </div>
 
-        <!-- Projects Section (placeholder for now) -->
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Day 1 Portfolio</h3>
-                    <p>My very first semantic HTML website. Deployed live on Day 1.</p>
+                    <!-- Add 1-2 more placeholder cards here if you want -->
+                    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden hover:border-zinc-600 transition-all group">
+                        <div class="h-52 bg-zinc-800 flex items-center justify-center text-6xl">🚧</div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-semibold mb-3">Coming Soon</h3>
+                            <p class="text-zinc-400 mb-6">Interactive Todo App with persistence (Day 13 goal)</p>
+                            <span class="text-zinc-500">In Progress</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Let's connect while I build in public.</p>
-            <a href="https://github.com/weavertc-maker" target="_blank" rel="noopener">GitHub</a>
-            <!-- Replace with your real GitHub username later -->
+        <section id="contact" class="py-24 bg-zinc-900">
+            <div class="max-w-2xl mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold tracking-tight mb-6">Let's Connect</h2>
+                <p class="text-xl text-zinc-400 mb-10">
+                    I'm actively learning and open to feedback. Feel free to reach out!
+                </p>
+                
+                <a href="https://github.com/weavertc-maker" 
+                   target="_blank" 
+                   rel="noopener"
+                   class="inline-flex items-center gap-3 px-8 py-4 bg-white text-zinc-950 rounded-2xl font-semibold hover:bg-zinc-200 transition-all text-lg">
+                    <span>Visit My GitHub</span>
+                    <span class="text-2xl">→</span>
+                </a>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Tanner. Built during 30-Day Web Dev Challenge.</p>
+    <!-- Footer -->
+    <footer class="border-t border-zinc-800 py-12">
+        <div class="max-w-6xl mx-auto px-6 text-center text-zinc-500 text-sm">
+            <p>&copy; 2026 Tanner Weaver. Built during 30-Day Web Development Challenge.</p>
+        </div>
     </footer>
 </body>
 </html>
