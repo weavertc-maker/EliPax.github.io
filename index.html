@@ -1,8 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanner Weaver - Aspiring Full-Stack Web Developer</title>
-    <meta name="description" content="Tanner Weaver from Kerrtown, PA — building modern web applications through a 30-day hands-on challenge.">
+    <title>Tanner Weaver — Aspiring Full-Stack Web Developer | Kerrtown, PA</title>
+    <meta name="description" content="Tanner Weaver from Pennsylvania — Hands-on web development course building modern, accessible applications.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -20,6 +22,10 @@
     </script>
 
     <style>
+        a:focus, button:focus, input:focus, textarea:focus {
+        outline: 2px solid #10b981;
+        outline-offset: 2px;
+    }
         html {
             scroll-behavior: smooth;
         }
@@ -56,6 +62,7 @@
                 
                 <!-- Hamburger Button -->
                 <button id="mobile-menu-button"
+                        aria-label="Toggle mobile menu"
                         class="md:hidden text-2xl focus:outline-none">
                     ☰
                 </button>
@@ -156,7 +163,7 @@
                         <div class="h-56 bg-zinc-800 flex items-center justify-center text-7xl">📄</div>
                         <div class="p-8">
                             <h3 class="text-xl font-semibold mb-3">Day 1 Portfolio</h3>
-                            <p class="text-zinc-400 mb-6 line-clamp-3">
+                            <p class="text-zinc-300 mb-6 line-clamp-3">
                                 Clean semantic HTML site built from scratch and deployed live on Day 1 of the challenge.
                             </p>
                             <a href="https://weavertc-maker.github.io/day-1-portfolio/" 
@@ -172,7 +179,7 @@
                         <div class="h-56 bg-zinc-800 flex items-center justify-center text-7xl">🚧</div>
                         <div class="p-8">
                             <h3 class="text-xl font-semibold mb-3">Interactive Todo App</h3>
-                            <p class="text-zinc-400 mb-6 line-clamp-3">
+                            <p class="text-zinc-300 mb-6 line-clamp-3">
                                 Planned for Day 13: Full JavaScript todo application with local persistence.
                             </p>
                             <span class="text-amber-400 text-sm font-medium">Coming Soon</span>
@@ -184,7 +191,7 @@
                         <div class="h-56 bg-zinc-800 flex items-center justify-center text-7xl">🌐</div>
                         <div class="p-8">
                             <h3 class="text-xl font-semibold mb-3">Full-Stack Blog</h3>
-                            <p class="text-zinc-400 mb-6 line-clamp-3">
+                            <p class="text-zinc-300 mb-6 line-clamp-3">
                                 Target for end of challenge: Next.js + Database blog with authentication.
                             </p>
                             <span class="text-amber-400 text-sm font-medium">In Progress</span>
@@ -199,7 +206,7 @@
     <div class="max-w-2xl mx-auto px-6">
         <div class="text-center mb-12">
             <h2 class="text-4xl font-bold tracking-tight mb-6">Let's Connect</h2>
-            <p class="text-xl text-zinc-400">
+            <p class="text-xl text-zinc-300">
                 I'm actively learning and open to feedback, questions, or opportunities.
             </p>
         </div>
@@ -207,7 +214,7 @@
         <!-- Contact Form -->
         <form id="contact-form" class="space-y-6 bg-zinc-800 p-10 rounded-3xl border border-zinc-700">
             <div>
-                <label for="name" class="block text-sm font-medium text-zinc-400 mb-2">Name</label>
+                <label for="name" class="block text-sm font-medium text-zinc-300 mb-2">Name</label>
                 <input type="text" 
                        id="name"
                        name="name"
@@ -216,7 +223,7 @@
             </div>
 
             <div>
-                <label for="email" class="block text-sm font-medium text-zinc-400 mb-2">Email</label>
+                <label for="email" class="block text-sm font-medium text-zinc-300 mb-2">Email</label>
                 <input type="email" 
                        id="email"
                        name="email"
@@ -225,7 +232,7 @@
             </div>
 
             <div>
-                <label for="message" class="block text-sm font-medium text-zinc-400 mb-2">Message</label>
+                <label for="message" class="block text-sm font-medium text-zinc-300 mb-2">Message</label>
                 <textarea id="message"
                           name="message"
                           rows="6"
