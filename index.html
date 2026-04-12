@@ -1,8 +1,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanner Weaver - Web Developer</title>
-    <meta name="description" content="Tanner Weaver - Aspiring Full-Stack Web Developer from Kerrtown, PA.">
+    <title>Tanner Weaver - Aspiring Full-Stack Web Developer</title>
+    <meta name="description" content="Tanner Weaver from Kerrtown, PA — building modern web applications through a 30-day hands-on challenge.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -13,9 +13,6 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'system_ui', 'sans-serif']
-                    },
-                    transitionDuration: {
-                        '400': '400ms'
                     }
                 }
             }
@@ -26,13 +23,14 @@
         html {
             scroll-behavior: smooth;
         }
-        
-        .hero-bg {
-            background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
     </style>
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>👨‍💻</text></svg>">
 </head>
 <body class="bg-zinc-950 text-zinc-200 font-sans antialiased">
     <!-- Sticky Navigation with Mobile Menu -->
@@ -128,26 +126,16 @@
                     </div>
                     
                     <div class="bg-zinc-800 p-8 rounded-3xl border border-zinc-700">
-                        <h3 class="text-xl font-semibold mb-6 flex items-center gap-2">
-                            <span class="text-emerald-400">🚀</span> Currently Building
-                        </h3>
-                        <ul class="space-y-4 text-zinc-300">
-                            <li class="flex items-start gap-3">
-                                <span class="text-emerald-400 mt-1">→</span>
-                                Strong semantic HTML &amp; accessibility foundations
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-emerald-400 mt-1">→</span>
-                                Tailwind CSS + Flexbox/Grid mastery
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-emerald-400 mt-1">→</span>
-                                JavaScript &amp; DOM manipulation (coming this week)
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <h3 class="text-xl font-semibold mb-6">Skills I'm Building</h3>
+    <div class="flex flex-wrap gap-3">
+        <span class="px-4 py-2 bg-zinc-900 text-emerald-300 text-sm rounded-2xl">HTML5</span>
+        <span class="px-4 py-2 bg-zinc-900 text-emerald-300 text-sm rounded-2xl">Tailwind CSS</span>
+        <span class="px-4 py-2 bg-zinc-900 text-emerald-300 text-sm rounded-2xl">Flexbox & Grid</span>
+        <span class="px-4 py-2 bg-zinc-900 text-emerald-300 text-sm rounded-2xl">JavaScript</span>
+        <span class="px-4 py-2 bg-zinc-900 text-emerald-300 text-sm rounded-2xl">Git & GitHub</span>
+        <span class="px-4 py-2 bg-zinc-900 text-emerald-300 text-sm rounded-2xl">Responsive Design</span>
+    </div>
+</div>
         </section>
 
         <!-- Projects Section -->
@@ -205,7 +193,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Contact Section -->
 <section id="contact" class="py-24 bg-zinc-900">
     <div class="max-w-2xl mx-auto px-6">
@@ -264,31 +252,32 @@
         </div>
     </footer>
     <script>
-    // Mobile Menu Toggle
+    // Mobile Menu
     const mobileBtn = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     
-    mobileBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        mobileBtn.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
-    });
-
-    // Close mobile menu when clicking links
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileBtn.textContent = '☰';
+    if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileBtn.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
         });
-    });
 
-    // Back to Top Button
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileBtn.textContent = '☰';
+            });
+        });
+    }
+
+    // Back to Top
     const backToTop = document.createElement('button');
     backToTop.innerHTML = '↑';
     backToTop.className = 'fixed bottom-8 right-8 bg-zinc-800 hover:bg-zinc-700 text-white w-12 h-12 rounded-full text-2xl shadow-lg hidden items-center justify-center transition-all z-50';
     document.body.appendChild(backToTop);
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
+        if (window.scrollY > 400) {
             backToTop.classList.remove('hidden');
             backToTop.classList.add('flex');
         } else {
@@ -301,49 +290,28 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Contact Form Handling
+    // Contact Form (if present)
     const form = document.getElementById('contact-form');
-    const formMessage = document.getElementById('form-message');
+    if (form) {
+        const formMessage = document.getElementById('form-message');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            if (name) {
+                showMessage(`Thanks ${name}! Message received (simulated).`, 'success');
+                form.reset();
+            }
+        });
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-
-        // Basic validation
-        if (!name || !email || !message) {
-            showMessage('Please fill in all fields.', 'error');
-            return;
+        function showMessage(text, type) {
+            if (!formMessage) return;
+            formMessage.textContent = text;
+            formMessage.classList.remove('hidden');
+            formMessage.className = type === 'success' 
+                ? 'mt-6 text-center p-4 rounded-2xl bg-emerald-900 text-emerald-200' 
+                : 'mt-6 text-center p-4 rounded-2xl bg-red-900 text-red-200';
+            setTimeout(() => formMessage.classList.add('hidden'), 5000);
         }
-
-        if (!email.includes('@')) {
-            showMessage('Please enter a valid email address.', 'error');
-            return;
-        }
-
-        // Simulate sending (in real app this would POST to a backend)
-        showMessage(`Thank you, ${name}! Your message has been received. I'll get back to you soon.`, 'success');
-
-        // Reset form
-        form.reset();
-    });
-
-    function showMessage(text, type) {
-        formMessage.textContent = text;
-        formMessage.classList.remove('hidden');
-        
-        if (type === 'success') {
-            formMessage.className = 'mt-6 text-center p-4 rounded-2xl bg-emerald-900 text-emerald-200 border border-emerald-700';
-        } else {
-            formMessage.className = 'mt-6 text-center p-4 rounded-2xl bg-red-900 text-red-200 border border-red-700';
-        }
-
-        // Auto-hide after 5 seconds
-        setTimeout(() => {
-            formMessage.classList.add('hidden');
-        }, 5000);
     }
 </script>
 </body>
