@@ -35,7 +35,6 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>👨‍💻</text></svg>">
 </head>
 <body class="bg-zinc-950 text-zinc-200 font-sans antialiased">
-    <!-- Sticky Navigation -->
     <!-- Sticky Navigation with Mobile Menu -->
 <header class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
     <nav class="max-w-6xl mx-auto px-6 py-5">
@@ -88,7 +87,7 @@
         <section class="hero-bg min-h-screen flex items-center justify-center px-6 py-20">
             <div class="max-w-4xl mx-auto text-center">
                 <h1 class="text-6xl md:text-7xl font-bold tracking-tighter mb-6">
-                    Hi, I'm Tanner Weaver
+                    Tanner Weaver
                 </h1>
                 <p class="text-2xl md:text-3xl text-zinc-400 mb-8">
                     Aspiring Full-Stack Web Developer
@@ -206,24 +205,56 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Contact Section -->
+<section id="contact" class="py-24 bg-zinc-900">
+    <div class="max-w-2xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold tracking-tight mb-6">Let's Connect</h2>
+            <p class="text-xl text-zinc-400">
+                I'm actively learning and open to feedback, questions, or opportunities.
+            </p>
+        </div>
 
-        <!-- Contact -->
-        <section id="contact" class="py-24 bg-zinc-900">
-            <div class="max-w-2xl mx-auto px-6 text-center">
-                <h2 class="text-4xl font-bold tracking-tight mb-6">Let's Connect</h2>
-                <p class="text-xl text-zinc-400 mb-10">
-                    I'm actively building in public and always open to feedback or opportunities.
-                </p>
-                
-                <a href="https://github.com/weavertc-maker" 
-                   target="_blank" 
-                   rel="noopener"
-                   class="inline-flex items-center gap-3 px-10 py-5 bg-white text-zinc-950 rounded-3xl font-semibold text-lg hover:bg-zinc-100 hover:scale-105 transition-all">
-                    Visit My GitHub Profile
-                    <span class="text-2xl">→</span>
-                </a>
+        <!-- Contact Form -->
+        <form id="contact-form" class="space-y-6 bg-zinc-800 p-10 rounded-3xl border border-zinc-700">
+            <div>
+                <label for="name" class="block text-sm font-medium text-zinc-400 mb-2">Name</label>
+                <input type="text" 
+                       id="name"
+                       name="name"
+                       required
+                       class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-emerald-500 transition-colors">
             </div>
-        </section>
+
+            <div>
+                <label for="email" class="block text-sm font-medium text-zinc-400 mb-2">Email</label>
+                <input type="email" 
+                       id="email"
+                       name="email"
+                       required
+                       class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-emerald-500 transition-colors">
+            </div>
+
+            <div>
+                <label for="message" class="block text-sm font-medium text-zinc-400 mb-2">Message</label>
+                <textarea id="message"
+                          name="message"
+                          rows="6"
+                          required
+                          class="w-full bg-zinc-900 border border-zinc-700 rounded-3xl px-5 py-4 text-white focus:outline-none focus:border-emerald-500 transition-colors resize-y"></textarea>
+            </div>
+
+            <button type="submit"
+                    class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 rounded-2xl transition-all duration-300">
+                Send Message
+            </button>
+        </form>
+
+        <!-- Success / Error Message -->
+        <div id="form-message" class="hidden mt-6 text-center p-4 rounded-2xl"></div>
+    </div>
+</section>
     </main>
 
     <!-- Footer -->
@@ -239,30 +270,23 @@
     
     mobileBtn.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
-        
-        // Change icon between hamburger and close
-        if (mobileMenu.classList.contains('hidden')) {
-            mobileBtn.textContent = '☰';
-        } else {
-            mobileBtn.textContent = '✕';
-        }
+        mobileBtn.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
     });
-    
-    // Close mobile menu when clicking a link
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
+
+    // Close mobile menu when clicking links
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
             mobileBtn.textContent = '☰';
         });
     });
-    
+
     // Back to Top Button
     const backToTop = document.createElement('button');
     backToTop.innerHTML = '↑';
     backToTop.className = 'fixed bottom-8 right-8 bg-zinc-800 hover:bg-zinc-700 text-white w-12 h-12 rounded-full text-2xl shadow-lg hidden items-center justify-center transition-all z-50';
     document.body.appendChild(backToTop);
-    
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 500) {
             backToTop.classList.remove('hidden');
@@ -272,10 +296,55 @@
             backToTop.classList.remove('flex');
         }
     });
-    
+
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // Contact Form Handling
+    const form = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        // Basic validation
+        if (!name || !email || !message) {
+            showMessage('Please fill in all fields.', 'error');
+            return;
+        }
+
+        if (!email.includes('@')) {
+            showMessage('Please enter a valid email address.', 'error');
+            return;
+        }
+
+        // Simulate sending (in real app this would POST to a backend)
+        showMessage(`Thank you, ${name}! Your message has been received. I'll get back to you soon.`, 'success');
+
+        // Reset form
+        form.reset();
+    });
+
+    function showMessage(text, type) {
+        formMessage.textContent = text;
+        formMessage.classList.remove('hidden');
+        
+        if (type === 'success') {
+            formMessage.className = 'mt-6 text-center p-4 rounded-2xl bg-emerald-900 text-emerald-200 border border-emerald-700';
+        } else {
+            formMessage.className = 'mt-6 text-center p-4 rounded-2xl bg-red-900 text-red-200 border border-red-700';
+        }
+
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+            formMessage.classList.add('hidden');
+        }, 5000);
+    }
 </script>
 </body>
 </html>
