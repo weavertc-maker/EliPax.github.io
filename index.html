@@ -9,14 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://picsum.photos/id/1015/2000/1200') center/cover;
-        }
-        .nav-link {
-            transition: all 0.3s ease;
-        }
-        .nav-link:hover {
-            color: #60a5fa;
-            transform: translateY(-2px);
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://picsum.photos/id/1015/2000/1200') center/cover;
         }
     </style>
 </head>
@@ -26,15 +19,15 @@
     <nav class="fixed top-0 w-full bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800 z-50">
         <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-9 h-9 bg-blue-600 rounded-2xl flex items-center justify-center text-xl font-bold">TW</div>
+                <div class="w-9 h-9 bg-blue-700 rounded-2xl flex items-center justify-center text-xl font-bold">TW</div>
                 <span class="text-2xl font-semibold tracking-tighter">Tanner Weaver</span>
             </div>
             <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+                <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
             </div>
-            <a href="#contact" class="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-2xl font-semibold transition-all">Get In Touch</a>
+            <a href="#contact" class="bg-blue-700 hover:bg-blue-600 px-6 py-3 rounded-2xl font-semibold transition-all">Get In Touch</a>
         </div>
     </nav>
 
@@ -43,7 +36,7 @@
         <div class="max-w-3xl">
             <h1 class="text-6xl md:text-7xl font-bold tracking-tighter mb-6">Tanner Weaver</h1>
             <p class="text-3xl md:text-4xl text-blue-400 mb-8">Full Stack Web Developer</p>
-            <p class="text-xl text-zinc-400 max-w-lg mx-auto">Building clean, modern websites that help small businesses grow.</p>
+            <p class="text-xl text-zinc-400 max-w-lg mx-auto">Crafting clean, modern websites for small businesses in Pennsylvania.</p>
             <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#projects" class="px-10 py-4 bg-white text-zinc-950 font-semibold rounded-2xl hover:bg-zinc-100 transition-all">View Projects</a>
                 <a href="#contact" class="px-10 py-4 border border-zinc-400 hover:border-white font-semibold rounded-2xl transition-all">Let's Connect</a>
@@ -66,10 +59,10 @@
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-4xl font-bold mb-12 text-center">Featured Projects</h2>
             <div class="grid md:grid-cols-2 gap-10">
-                <!-- Junk Bros -->
+                <!-- Junk Bros Project -->
                 <div class="bg-zinc-900 rounded-3xl overflow-hidden group">
-                    <div class="h-64 bg-zinc-800 flex items-center justify-center p-8">
-                        <img src="https://junkbrostrash.com/images/JBT.jpg" alt="Junk Bros Logo" class="max-h-full">
+                    <div class="h-64 bg-zinc-800 flex items-center justify-center p-8 border-b border-zinc-700">
+                        <img src="https://junkbrostrash.com/images/JBT.jpg" alt="Junk Bros Logo" class="max-h-48 w-auto">
                     </div>
                     <div class="p-8">
                         <h3 class="text-2xl font-semibold mb-3">Junk Bros Trash Removal</h3>
@@ -96,7 +89,7 @@
                 <input type="tel" placeholder="Phone Number (optional)" class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500">
                 <textarea placeholder="What are your business needs?" rows="5" required class="w-full bg-zinc-900 border border-zinc-700 rounded-3xl px-6 py-4 focus:outline-none focus:border-blue-500"></textarea>
                 
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 py-5 rounded-3xl font-semibold text-lg transition-all">
+                <button type="submit" class="w-full bg-blue-700 hover:bg-blue-600 py-5 rounded-3xl font-semibold text-lg transition-all">
                     Send Message
                 </button>
             </form>
@@ -105,11 +98,10 @@
 
     <!-- Footer -->
     <footer class="bg-black py-12 text-center text-zinc-500">
-        <p>© 2026 Tanner Weaver • Built with passion in Pennsylvania</p>
+        <p>© 2026 Tanner Weaver • Pennsylvania</p>
     </footer>
 
     <script>
-        // Mobile menu and basic form handling
         const form = document.getElementById('contact-form');
         form.addEventListener('submit', (e) => {
             e.preventDefault();
