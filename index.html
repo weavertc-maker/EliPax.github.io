@@ -50,7 +50,7 @@
         <div class="max-w-2xl">
             <h1 class="text-6xl md:text-7xl font-bold tracking-tighter mb-6">Tanner Weaver</h1>
             <p class="text-3xl text-slate-400 mb-8">Full Stack Web Developer</p>
-            <p class="text-lg text-zinc-400 max-w-md mx-auto">I build websites that help small businesses grow.</p>
+            <p class="text-lg text-zinc-400 max-w-md mx-auto">I build clean, modern websites that help small businesses grow.</p>
             <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#projects" class="px-10 py-4 bg-white text-zinc-950 rounded-full font-medium hover:bg-zinc-100 transition-all">View Projects</a>
                 <a href="#contact" class="px-10 py-4 border border-zinc-400 rounded-full font-medium hover:bg-white hover:text-zinc-950 transition-all">Get In Touch</a>
@@ -63,7 +63,7 @@
         <div class="max-w-2xl mx-auto px-6 text-center">
             <h2 class="text-5xl font-bold mb-12 tracking-tight">About Me</h2>
             <div class="text-lg text-zinc-300 leading-relaxed">
-                <p>My name is Tanner Weaver, and I am a Full Stack Web Developer from Pennsylvania. I enjoy building websites for small businesses.</p>
+                <p>My name is Tanner Weaver and I am a Full Stack Web Developer from Pennsylvania. I really enjoy building websites for small businesses.</p>
             </div>
         </div>
     </section>
@@ -80,7 +80,7 @@
                     </div>
                     <div class="p-10">
                         <h3 class="text-2xl font-semibold mb-3">Junk Bros Trash Removal</h3>
-                        <p class="text-zinc-400 mb-8">An updated website for a local junk removal business. Clean design, mobile menu, contact form with photo upload, gallery, and testimonials.</p>
+                        <p class="text-zinc-400 mb-8">Modern, responsive website for a local junk removal business. Clean design, mobile menu, contact form with photo upload, gallery, and testimonials.</p>
                         <a href="https://junkbrostrash.com/" target="_blank" class="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium">
                             Visit Live Site →
                         </a>
@@ -97,4 +97,31 @@
             <form id="contact-form" class="space-y-6 bg-zinc-800 p-10 rounded-3xl">
                 <div class="grid md:grid-cols-2 gap-6">
                     <input type="text" placeholder="First Name" required class="bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500">
-                    <input type="text" placeholder="Last Name" required class="bg-zinc-900 border border-zinc-700 rounded-2xl
+                    <input type="text" placeholder="Last Name" required class="bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500">
+                </div>
+                <input type="email" placeholder="Email Address" required class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500">
+                <input type="tel" placeholder="Phone Number (optional)" class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500">
+                <textarea placeholder="What are your business needs?" rows="5" required class="w-full bg-zinc-900 border border-zinc-700 rounded-3xl px-6 py-4 focus:outline-none focus:border-blue-500"></textarea>
+                
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 py-5 rounded-3xl font-semibold text-lg transition-all">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 text-center text-zinc-500 text-sm">
+        <p>© 2026 Tanner Weaver • Pennsylvania</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert("Thank you! Your message has been received. I'll get back to you soon.");
+            form.reset();
+        });
+    </script>
+</body>
+</html>
