@@ -16,10 +16,6 @@
         .hero-bg {
             background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.95)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat fixed;
         }
-        
-        .parallax {
-            transition: transform 0.1s ease-out;
-        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-200">
@@ -27,10 +23,7 @@
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-slate-950/95 backdrop-blur-md border-b border-slate-800 z-50">
         <div class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-9 h-9 bg-blue-700 rounded-2xl flex items-center justify-center text-xl font-bold">TW</div>
-                <span class="font-semibold text-2xl tracking-tighter">Tanner Weaver</span>
-            </div>
+            <div class="text-2xl font-semibold tracking-tighter">Tanner Weaver</div>
             <div class="flex gap-10 text-sm font-medium">
                 <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
                 <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
@@ -40,9 +33,9 @@
     </nav>
 
     <!-- Hero -->
-    <section class="hero-bg min-h-screen flex items-center justify-center text-center px-6 parallax" id="hero">
+    <section class="hero-bg min-h-screen flex items-center justify-center text-center px-6">
         <div class="max-w-3xl">
-            <h1 class="text-6xl md:text-7xl font-bold tracking-tighter mb-6">Tanner Weaver</h1>
+            <h1 id="hero-title" class="text-6xl md:text-7xl font-bold tracking-tighter mb-6 opacity-0">Tanner Weaver</h1>
             <p class="text-4xl text-blue-400 mb-8">Full Stack Web Developer</p>
             <p class="text-xl text-slate-400 max-w-lg mx-auto">Crafting clean, modern websites that help small businesses grow.</p>
             <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
@@ -115,30 +108,25 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Parallax on hero
-        gsap.to(".hero-bg", {
-            backgroundPosition: "50% 30%",
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".hero-bg",
-                start: "top top",
-                end: "bottom top",
-                scrub: true
-            }
+        // Hero title fade-in
+        gsap.from("#hero-title", {
+            opacity: 0,
+            y: 40,
+            duration: 1.4,
+            ease: "power3.out"
         });
 
-        // Fade-in sections
-        document.querySelectorAll('section').forEach((section, i) => {
+        // Section fade-ins
+        document.querySelectorAll('section').forEach(section => {
             gsap.from(section, {
-                opacity: 0,
-                y: 60,
-                duration: 1.2,
-                ease: "power3.out",
                 scrollTrigger: {
                     trigger: section,
                     start: "top 80%",
-                    toggleActions: "play none none reverse"
-                }
+                },
+                opacity: 0,
+                y: 60,
+                duration: 1.2,
+                ease: "power3.out"
             });
         });
 
